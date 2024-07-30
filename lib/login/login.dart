@@ -66,8 +66,8 @@ class _LoginState extends ConsumerState<Login> {
         ToastFlutter().toast('The provided password is too weak, please try strong one!');
       } else if (e.code == 'email-already-in-use') {
         ToastFlutter().toast('The email address is already in use!');
-      } else {
-        ToastFlutter().toast('Something went wrong! Please try again later.');
+      } else if (e.code == 'wrong-password') {
+        ToastFlutter().toast('The entered password is wrong!');
       }
     }
   }
