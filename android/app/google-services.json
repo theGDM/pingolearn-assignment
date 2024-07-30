@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "457916488611",
+    "project_id": "gdmprojects-cf226",
+    "storage_bucket": "gdmprojects-cf226.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457916488611:android:6881bf8e37c885a5629816",
+        "android_client_info": {
+          "package_name": "com.gdm.ecommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457916488611-eifsh4dvdtsr9p85qvqpo1p4iv29h9jv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCesYlMJ_vC1wvRJzgFXvTavUGxBSxLxkw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457916488611-eifsh4dvdtsr9p85qvqpo1p4iv29h9jv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "457916488611-eerolmijelq25kmpj2a57njqggv5261i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.gdm.learningapp.learningApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457916488611:android:284cb31a8e7cc965629816",
+        "android_client_info": {
+          "package_name": "com.gdm.learning_app.learning_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457916488611-eifsh4dvdtsr9p85qvqpo1p4iv29h9jv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCesYlMJ_vC1wvRJzgFXvTavUGxBSxLxkw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457916488611-eifsh4dvdtsr9p85qvqpo1p4iv29h9jv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "457916488611-eerolmijelq25kmpj2a57njqggv5261i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.gdm.learningapp.learningApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
