@@ -1,5 +1,5 @@
 import 'package:ecommerce/dashboard/dashboard.dart';
-import 'package:ecommerce/login/login.dart';
+import 'package:ecommerce/signup/signup.dart';
 import 'package:ecommerce/theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         title: 'Pingolearn Ecommerce Website',
         debugShowCheckedModeBanner: false,
         theme: appTheme,
-        home: user == null ? const Login() : const Dashboard(),
+        home: user == null ? const Signup() : const Dashboard(),
       ),
     );
   }

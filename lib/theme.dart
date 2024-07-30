@@ -15,11 +15,11 @@ ThemeData appTheme = ThemeData(
       fontWeight: FontWeight.bold,
     ),
     displaySmall: GoogleFonts.poppins(
-      fontSize: 14.sp,
+      fontSize: 16.sp,
       fontWeight: FontWeight.bold,
     ),
     titleLarge: GoogleFonts.poppins(
-      fontSize: 24.sp,
+      fontSize: 20.sp,
       fontStyle: FontStyle.normal,
     ),
     titleMedium: GoogleFonts.poppins(
@@ -37,7 +37,7 @@ ThemeData appTheme = ThemeData(
     primary: const Color.fromARGB(255, 245, 249, 253),
     secondary: const Color.fromARGB(255, 12, 84, 190),
     onPrimary: Colors.white,
-    onSecondary: const Color.fromARGB(255, 128, 122, 122),
+    onSecondary: Colors.black,
     onTertiary: const Color.fromARGB(255, 228, 223, 223),
     background: const Color.fromARGB(255, 245, 249, 253),
   ),
