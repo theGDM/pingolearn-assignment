@@ -86,3 +86,63 @@ Widget buildProductCard(
     ),
   );
 }
+
+Widget buildSearchField(BuildContext context, void Function(String value) func) {
+  return Container(
+    margin: EdgeInsets.only(bottom: 10.h),
+    height: 35.h,
+    child: TextFormField(
+      onChanged: (value) => func(value),
+      cursorColor: Theme.of(context).colorScheme.secondary,
+      enableSuggestions: false,
+      autocorrect: false,
+      decoration: InputDecoration(
+        hintText: 'Search products',
+        filled: true,
+        fillColor: Colors.white,
+        border: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: Colors.transparent,
+          ),
+          borderRadius: BorderRadius.all(
+            Radius.circular(10.r),
+          ),
+        ),
+        contentPadding: EdgeInsets.symmetric(horizontal: 16.w),
+        counterText: '',
+        enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: Colors.transparent,
+          ),
+          borderRadius: BorderRadius.all(
+            Radius.circular(10.r),
+          ),
+        ),
+        disabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: Colors.transparent,
+          ),
+          borderRadius: BorderRadius.all(
+            Radius.circular(10.r),
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: Colors.transparent,
+          ),
+          borderRadius: BorderRadius.all(
+            Radius.circular(10.r),
+          ),
+        ),
+        hintStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
+              color: Theme.of(context).colorScheme.onSecondary,
+              fontSize: 15.sp,
+            ),
+      ),
+      style: Theme.of(context).textTheme.titleSmall!.copyWith(
+            color: Theme.of(context).colorScheme.onSecondary,
+            fontSize: 15.sp,
+          ),
+    ),
+  );
+}
