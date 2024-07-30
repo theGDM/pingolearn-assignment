@@ -17,13 +17,13 @@
 **IDE:** `Visual Studio Code`
 
 ## **Features:**
- - Used riverpod for managing the states throughout the application.
- - Used firebase for authentication and saving user's data.
- - Created searchbar for searching the product from prducts list.
- - Used firebase config to set whether we have to display discounted price or not.
- - Used caching to cache the image data, to enhance the user experience.
- - Clean, Intuitive and optimised code.
- - Responsive UI for different screen layouts.
+ - Used riverpod for managing the states throughout the application. ✅
+ - Used firebase for authentication and saving user's data. ✅
+ - Created searchbar for searching the product from prducts list. ✅
+ - Used firebase config to set whether we have to display discounted price or not. ✅
+ - Used caching to cache the image data, to enhance the user experience. ✅
+ - Clean, Intuitive and optimised code. ✅
+ - Responsive UI for different screen layouts. ✅
 
 ## **Steps to Run the Application (Locally):**
 1. Firstly fork the given repo.
