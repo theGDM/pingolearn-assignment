@@ -45,8 +45,8 @@ class _SignupState extends ConsumerState<Signup> {
       );
 
       await firestore.collection('users').doc(userCredential.user!.uid).set({
-        'name': userData.email,
-        'email': userData.password,
+        'name': userData.name,
+        'email': userData.email,
       });
 
       if (userCredential.user != null) {
