@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce/common/services/toast.dart';
 import 'package:ecommerce/common/widgets/common_helper_widget.dart';
+import 'package:ecommerce/dashboard/dashboard.dart';
 import 'package:ecommerce/login/login.dart';
 import 'package:ecommerce/signup/providers/new_user_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -53,7 +54,7 @@ class _SignupState extends ConsumerState<Signup> {
         ref.invalidate(newUserProvider);
         nav.pushReplacement(
           MaterialPageRoute(
-            builder: (context) => const Login(),
+            builder: (context) => const Dashboard(),
           ),
         );
       }
