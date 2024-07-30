@@ -32,7 +32,7 @@ class _SignupState extends State<Signup> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                buildHeadingText(context),
+                buildHeadingText(context, Theme.of(context).colorScheme.secondary),
               ],
             ),
             SizedBox(

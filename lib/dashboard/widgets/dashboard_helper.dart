@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,10 +21,11 @@ Widget buildProductCard(
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(10.r),
-          child: Image.network(
-            imageUrl,
+          child: CachedNetworkImage(
+            imageUrl: imageUrl,
             height: 155.h,
             fit: BoxFit.cover,
+            errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
         ),
         Column(
@@ -48,8 +50,8 @@ Widget buildProductCard(
               overflow: TextOverflow.ellipsis,
             ),
             SizedBox(height: 8.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Wrap(
+              spacing: 5.w,
               children: [
                 Text(
                   '\$$originalPrice',
@@ -57,10 +59,11 @@ Widget buildProductCard(
                         color: const Color.fromARGB(255, 128, 128, 128),
                         fontStyle: FontStyle.italic,
                         fontSize: 13.sp,
+                        decoration: TextDecoration.lineThrough,
                       ),
                 ),
                 Text(
-                  '\$499',
+                  '\$${(originalPrice - originalPrice * discountPercentage * 0.01).toStringAsFixed(2)}',
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(
                         color: Colors.black,
                         fontStyle: FontStyle.italic,

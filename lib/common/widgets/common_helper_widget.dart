@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-Widget buildHeadingText(BuildContext context) {
+Widget buildHeadingText(BuildContext context, Color color) {
   return Text(
     'e-shops',
     style: Theme.of(context).textTheme.titleLarge!.copyWith(
-          color: Theme.of(context).colorScheme.secondary,
+          color: color,
           fontWeight: FontWeight.w700,
         ),
   );
