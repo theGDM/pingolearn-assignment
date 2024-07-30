@@ -1,8 +1,14 @@
+import 'dart:convert';
+
+import 'package:ecommerce/common/services/remote_config.dart';
 import 'package:ecommerce/common/widgets/common_helper_widget.dart';
 import 'package:ecommerce/dashboard/providers/fetch_products_provider.dart';
 import 'package:ecommerce/dashboard/providers/search_product_controller_provider.dart';
 import 'package:ecommerce/dashboard/providers/search_product_input_provider.dart';
 import 'package:ecommerce/dashboard/widgets/dashboard_helper.dart';
+import 'package:ecommerce/login/login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,6 +21,21 @@ class Dashboard extends ConsumerStatefulWidget {
 }
 
 class _DashboardState extends ConsumerState<Dashboard> {
+  bool status = true;
+
+  @override
+  void initState() {
+    super.initState();
+    getWhetherToDisplayDescountedPrice();
+  }
+
+  void getWhetherToDisplayDescountedPrice() async {
+    var serverJsonData = (await FirebaseRemoteConfigClass().initializeConfig('displayDiscountPrice'));
+    setState(() {
+      status = json.decode(serverJsonData)['status'];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final searchControllerProducts = ref.watch(searchProductControllerProvider);
@@ -24,7 +45,26 @@ class _DashboardState extends ConsumerState<Dashboard> {
         backgroundColor: Theme.of(context).colorScheme.secondary,
         toolbarHeight: 82.h,
         centerTitle: false,
-        title: buildHeadingText(context, Colors.white),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            buildHeadingText(context, Colors.white),
+            IconButton(
+              onPressed: () async {
+                final nav = Navigator.of(context);
+                final auth = FirebaseAuth.instance;
+                await auth.signOut();
+                nav.pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) => const Login(),
+                  ),
+                );
+              },
+              icon: const Icon(Icons.logout_rounded),
+              color: Colors.white,
+            ),
+          ],
+        ),
         systemOverlayStyle: Theme.of(context).appBarTheme.systemOverlayStyle!.copyWith(
               statusBarColor: Theme.of(context).colorScheme.secondary,
               statusBarIconBrightness: Brightness.light,
@@ -60,6 +100,7 @@ class _DashboardState extends ConsumerState<Dashboard> {
                         product.price,
                         product.discountPercentage,
                         product.images[0],
+                        status,
                       );
                     },
                   ),
@@ -76,11 +117,9 @@ class _DashboardState extends ConsumerState<Dashboard> {
           );
         },
         loading: () {
-          return Expanded(
-            child: Center(
-              child: CircularProgressIndicator(
-                color: Theme.of(context).colorScheme.secondary,
-              ),
+          return Center(
+            child: CircularProgressIndicator(
+              color: Theme.of(context).colorScheme.secondary,
             ),
           );
         },

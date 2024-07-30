@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         title: 'Pingolearn Ecommerce Website',
         debugShowCheckedModeBanner: false,
         theme: appTheme,
-        home: user != null ? const Signup() : const Dashboard(),
+        home: user == null ? const Signup() : const Dashboard(),
       ),
     );
   }

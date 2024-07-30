@@ -9,6 +9,7 @@ Widget buildProductCard(
   double originalPrice,
   double discountPercentage,
   String imageUrl,
+  bool status,
 ) {
   return Container(
     decoration: BoxDecoration(
@@ -59,25 +60,29 @@ Widget buildProductCard(
                         color: const Color.fromARGB(255, 128, 128, 128),
                         fontStyle: FontStyle.italic,
                         fontSize: 13.sp,
-                        decoration: TextDecoration.lineThrough,
+                        decoration: status ? TextDecoration.lineThrough : TextDecoration.none,
                       ),
                 ),
-                Text(
-                  '\$${(originalPrice - originalPrice * discountPercentage * 0.01).toStringAsFixed(2)}',
-                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        color: Colors.black,
-                        fontStyle: FontStyle.italic,
-                        fontSize: 13.sp,
-                      ),
-                ),
-                Text(
-                  '${discountPercentage.toStringAsFixed(2)}% off',
-                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        color: const Color.fromARGB(255, 21, 249, 17),
-                        fontStyle: FontStyle.italic,
-                        fontSize: 13.sp,
-                      ),
-                ),
+                status
+                    ? Text(
+                        '\$${(originalPrice - originalPrice * discountPercentage * 0.01).toStringAsFixed(2)}',
+                        style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                              color: Colors.black,
+                              fontStyle: FontStyle.italic,
+                              fontSize: 13.sp,
+                            ),
+                      )
+                    : const SizedBox(),
+                status
+                    ? Text(
+                        '${discountPercentage.toStringAsFixed(2)}% off',
+                        style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                              color: const Color.fromARGB(255, 21, 249, 17),
+                              fontStyle: FontStyle.italic,
+                              fontSize: 13.sp,
+                            ),
+                      )
+                    : const SizedBox(),
               ],
             ),
           ],

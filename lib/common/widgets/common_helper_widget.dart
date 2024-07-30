@@ -88,8 +88,11 @@ Widget buildSubmitButton(BuildContext context, String title, bool dataPosted, vo
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          SizedBox(
+            width: 20.w,
+          ),
           Text(
             title,
             style: Theme.of(context).textTheme.titleSmall!.copyWith(
@@ -98,6 +101,18 @@ Widget buildSubmitButton(BuildContext context, String title, bool dataPosted, vo
                   fontSize: 15.sp,
                 ),
           ),
+          dataPosted
+              ? SizedBox(
+                  width: 20.w,
+                )
+              : SizedBox(
+                  width: 20.h,
+                  height: 20.h,
+                  child: const CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: Colors.white,
+                  ),
+                ),
         ],
       ),
     ),
